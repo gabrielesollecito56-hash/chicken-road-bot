@@ -107,4 +107,19 @@ def photo(message):
 @bot.message_handler(commands=['stats'])
 def stats_cmd(message):
     stats = load_stats()
-    conver
+    conversion = round(stats['deposited'] / max(stats['started'], 1) * 100, 1)
+
+    text = (
+        '📊 *Statistiche Bot*\n\n'
+        '👥 Utenti: ' + str(stats['total_users']) + '\n'
+        '🎮 Iniziati: ' + str(stats['started']) + '\n'
+        '💰 Depositi: ' + str(stats['deposited']) + '\n\n'
+        '📈 Conversione: ' + str(conversion) + '%'
+    )
+
+    bot.send_message(message.chat.id, text, parse_mode='Markdown')
+
+
+if __name__ == '__main__':
+    print('🚀 Bot Chicken Road VIP avviato!')
+    bot.infinity_polling()
