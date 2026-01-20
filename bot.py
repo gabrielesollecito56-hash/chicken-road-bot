@@ -29,7 +29,8 @@ def start(message):
         save_stats(stats)
     markup = types.InlineKeyboardMarkup()
     btn1 = types.InlineKeyboardButton('🎮 Inizia Ora', callback_data='start_now')
-    btn2 = types.InlineKeyboardButton('👤 Parla con un Agente', callback_data='talk_agent')
+    btn2 = types.InlineKeyboardButton('👤 Parla con un Agente', callback_data='48
+    ')
     markup.add(btn1)
     markup.add(btn2)
     text = '🐔 *Benvenuto in Chicken Road VIP!* 🐔\n\n🎰 Il gioco più redditizio del momento!\n\n💰 Vinci migliaia di euro con la strategia giusta!\n\nScegli un\'opzione:'
@@ -46,7 +47,8 @@ def callback(call):
         text = '🎯 *Perfetto! Segui questi passaggi:*\n\n1️⃣ Clicca sul link qui sotto\n2️⃣ Registrati sul casino\n3️⃣ Effettua un deposito\n4️⃣ Inviami lo screenshot del deposito\n5️⃣ Riceverai la strategia vincente! 🎁\n\n🔗 *Link registrazione:*\n' + link + '\n\n📸 Dopo il deposito, inviami lo screenshot!'
         bot.edit_message_text(text, call.message.chat.id, call.message.id, parse_mode='Markdown')
     elif call.data == 'talk_agent':
-        text = '👤 *Supporto Clienti*\n\nPer parlare con un agente, contattaci:\n\n📱 Telegram: @ChickenRoadSupport\n📧 Email: support@chickenroad.vip\n\n⏰ Disponibili 24/7'
+        text = '👤 *Supporto Clienti*\n\nPer parlare con un agente, contattaci:\n\n📱 Telegram: @Servic362\n📧 Email: 50
+        .vip\n\n⏰ Disponibili 24/7'
         bot.edit_message_text(text, call.message.chat.id, call.message.id, parse_mode='Markdown')
 
 @bot.message_handler(content_types=['photo'])
