@@ -29,7 +29,7 @@ def start(message):
         save_stats(stats)
     markup = types.InlineKeyboardMarkup()
     btn1 = types.InlineKeyboardButton('🎮 Inizia Ora', callback_data='start_now')
-    btn2 = types.InlineKeyboardButton('👤 Parla con un Agente', callback_data='48
+   btn2 = types.InlineKeyboardButton('👤 Parla con un Agente', callback_data='48')
     ')
     markup.add(btn1)
     markup.add(btn2)
