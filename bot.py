@@ -44,7 +44,7 @@ def start(message):
         'Scegli un\'opzione:'
     )
 
-    bot.send_message(message.chat.id, text, parse_mode='Markdown', reply_markup=markup)
+    bot.send_message(message.chat.id, text, reply_markup=markup)
 
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -68,7 +68,7 @@ def callback(call):
             '📸 Dopo il deposito, inviami lo screenshot!'
         )
 
-        bot.edit_message_text(text, call.message.chat.id, call.message.id, parse_mode='Markdown')
+        bot.edit_message_text(text, call.message.chat.id, call.message.id)
 
     elif call.data == 'talk_agent':
         text = (
@@ -78,7 +78,7 @@ def callback(call):
                         '⏰ Disponibili 24/7'
         )
 
-        bot.edit_message_text(text, call.message.chat.id, call.message.id, parse_mode='Markdown')
+        bot.edit_message_text(text, call.message.chat.id, call.message.id)
 
 
 @bot.message_handler(content_types=['photo'])
@@ -100,7 +100,7 @@ def photo(message):
         '🎰 Buona fortuna! 🍀'
     )
 
-    bot.send_message(message.chat.id, text, parse_mode='Markdown')
+    bot.send_message(message.chat.id, text)
 
 
 @bot.message_handler(commands=['stats'])
@@ -116,7 +116,7 @@ def stats_cmd(message):
         '📈 Conversione: ' + str(conversion) + '%'
     )
 
-    bot.send_message(message.chat.id, text, parse_mode='Markdown')
+    bot.send_message(message.chat.id, text)
 
 
 if __name__ == '__main__':
