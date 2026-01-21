@@ -75,8 +75,7 @@ def callback(call):
             '👤 *Supporto Clienti*\n\n'
             'Per parlare con un agente, contattaci:\n\n'
             '📱 Telegram: @Servic362\n'
-            '📧 Email: 50.vip\n\n'
-            '⏰ Disponibili 24/7'
+                        '⏰ Disponibili 24/7'
         )
 
         bot.edit_message_text(text, call.message.chat.id, call.message.id, parse_mode='Markdown')
