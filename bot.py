@@ -8,6 +8,7 @@ CPA_LINK = 'https://track.betmenaffiliates.com/visit/?bta=43378&nci=5903&utm_cam
 STATS_FILE = 'stats.json'
 
 bot = telebot.TeleBot(TOKEN)
+ADMIN_ID = 520076361
 
 
 def load_stats():
@@ -119,6 +120,19 @@ def stats_cmd(message):
     bot.send_message(message.chat.id, text)
 
 
+
+@bot.message_handler(func=lambda message: True)
+def forward_to_admin(message):
+    try:
+        username = message.from_user.username or 'Nessun username'
+        user_id = message.from_user.id
+        first_name = message.from_user.first_name or 'Utente'
+        
+        text_to_forward = f"💬 Nuovo messaggio da {first_name} (@{username} - ID: {user_id}):\n\n{message.text}"
+        
+        bot.send_message(ADMIN_ID, text_to_forward)
+    except:
+        pass
 if __name__ == '__main__':
     print('🚀 Bot Chicken Road VIP avviato!')
     bot.infinity_polling()
