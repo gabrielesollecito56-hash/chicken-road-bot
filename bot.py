@@ -132,6 +132,25 @@ def forward_to_admin(message):
         
         bot.send_message(ADMIN_ID, text_to_forward)
     except:
+
+        @bot.message_handler(commands=['reply'])
+        def reply_to_user(message):
+                if message.chat.id != ADMIN_ID:
+                            return
+
+            try:
+                        parts = message.text.split(maxsplit=2)
+                        if len(parts) < 3:
+                                        bot.reply_to(message, "Uso corretto: /reply ID_UTENTE messaggio")
+                                        return
+
+                user_id = int(parts[1])
+                reply_text = parts[2]
+
+                bot.send_message(user_id, reply_text)
+                bot.reply_to(message, f"✅ Messaggio inviato a {user_id}")
+            except Exception as e:
+                        bot.reply_to(message, f"❌ Errore nell'invio: {e}")
         pass
 if __name__ == '__main__':
     print('🚀 Bot Chicken Road VIP avviato!')
