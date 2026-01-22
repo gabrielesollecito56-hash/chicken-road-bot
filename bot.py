@@ -133,7 +133,7 @@ def forward_to_admin(message):
         bot.send_message(ADMIN_ID, text_to_forward)
     except:
 
-
+        pass
 @bot.message_handler(commands=['reply'])
 def reply_to_user(message):
             pass
